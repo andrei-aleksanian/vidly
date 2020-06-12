@@ -1,6 +1,7 @@
 require('express-async-errors');
 const winston = require('winston');
 require('winston-mongodb');
+const config = require('config');
 
 winston.addColors({
     silly: 'magenta',
@@ -19,7 +20,7 @@ const logger = winston.createLogger({
         new winston.transports.Console({ level: 'error' }),
         new winston.transports.File({ filename: './logs/error.log', level: 'error' }),
         new winston.transports.File({ filename: './logs/application.log' }),
-        new winston.transports.MongoDB({ db: 'mongodb://localhost/vidly' })
+        new winston.transports.MongoDB({ db: config.get('db') })
     ],
     exceptionHandlers: [
         new winston.transports.File({ filename: './logs/exceptions.log' })
