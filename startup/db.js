@@ -12,5 +12,5 @@ module.exports = function() {
         useUnifiedTopology: true,
         useFindAndModify: false
     })
-        .then(() => debug(`Connected to ${db}...`));
+        .then(() => console.log(`Connected to ${db}...`));
 }
