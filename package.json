@@ -1,0 +1,46 @@
+{
+  "name": "vidly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":  "node index.js",
+    "test": "nyc --reporter=html mocha --recursive -w",
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "*",
+    "bcrypt": "^5.0.0",
+    "compression": "^1.7.4",
+    "config": "*",
+    "debug": "*",
+    "express": "^4.17.1",
+    "express-async-errors": "*",
+    "fs": "0.0.2",
+    "helmet": "^3.22.1",
+    "joi": "^14.3.1",
+    "joi-objectid": "*",
+    "joi-password-complexity": "*",
+    "jsonwebtoken": "*",
+    "lodash": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "nodemon": "*",
+    "nyc": "^15.1.0",
+    "supertest": "*",
+    "winston": "*",
+    "winston-mongodb": "*"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "chai-http": "*",
+    "jest": "*",
+    "mocha": "^8.0.1"
+  }
+}
