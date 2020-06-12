@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/18</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -83,18 +83,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const {Rental, validateReturn} = require('../models/rental');
@@ -102,19 +102,19 @@ const auth = require('../middleware/auth');
 const express = require('express');
 const router = express.Router();
 &nbsp;
-router.post('/', auth, <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-    const data = <span class="cstat-no" title="statement not covered" >req.body;</span>
-    const { error } = <span class="cstat-no" title="statement not covered" >validateReturn(data);</span>
-<span class="cstat-no" title="statement not covered" >    if (error) <span class="cstat-no" title="statement not covered" >return res.status(400).send(error.details);</span></span>
+router.post('/', auth, async (req, res) =&gt; {
+    const data = req.body;
+    const { error } = validateReturn(data);
+    if (error) return res.status(400).send(error.details);
 &nbsp;
-    const rental = <span class="cstat-no" title="statement not covered" >await Rental.findById(data.rentalId);</span>
-<span class="cstat-no" title="statement not covered" >    if (!rental) <span class="cstat-no" title="statement not covered" >return res.status(404).send("Rental does not exist");</span></span>
-<span class="cstat-no" title="statement not covered" >    if (rental.returnedDate) <span class="cstat-no" title="statement not covered" >return res.status(400).send("Rental is already returned");</span></span>
+    const rental = await Rental.findById(data.rentalId);
+    if (!rental) return res.status(404).send("Rental does not exist");
+    if (rental.returnedDate) return res.status(400).send("Rental is already returned");
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    rental.returnedDate = new Date();</span>
-<span class="cstat-no" title="statement not covered" >    await rental.save();</span>
+    rental.returnedDate = new Date();
+    await rental.save();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    res.status(200).send(rental);</span>
+    res.status(200).send(rental);
 });
 &nbsp;
 module.exports = router;</pre></td></tr></table></pre>
@@ -124,7 +124,7 @@ module.exports = router;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jun 12 2020 16:25:45 GMT+0100 (British Summer Time)
+                at Fri Jun 12 2020 17:50:20 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

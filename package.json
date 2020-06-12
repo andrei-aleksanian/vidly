@@ -37,7 +37,7 @@
     "winston-mongodb": "*"
   },
   "devDependencies": {
-    "chai": "*",
+    "chai": "^4.2.0",
     "chai-http": "*",
     "jest": "*",
     "mocha": "^8.0.1"

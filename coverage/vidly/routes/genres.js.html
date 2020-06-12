@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.29% </span>
+                <span class="strong">65.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/35</span>
+                <span class='fraction'>23/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">30% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>3/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">73.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/30</span>
+                <span class='fraction'>22/30</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -116,8 +116,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -125,26 +135,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,6 +149,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const {Genre, validate} = require('../models/genre');
@@ -166,19 +166,19 @@ const validateObjectId = require('../middleware/validateObjectId');
 const express = require('express');
 const router = express.Router();
 &nbsp;
-router.get('/', <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-  const genres = <span class="cstat-no" title="statement not covered" >await Genre.find().sort('name');</span>
-<span class="cstat-no" title="statement not covered" >  res.send(genres);</span>
+router.get('/', async (req, res) =&gt; {
+  const genres = await Genre.find().sort('name');
+  res.send(genres);
 });
 &nbsp;
-router.post('/', auth, <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-  const { error } = <span class="cstat-no" title="statement not covered" >validate(req.body);</span>
-<span class="cstat-no" title="statement not covered" >  if (error) <span class="cstat-no" title="statement not covered" >return res.status(400).send(error.details[0].message);</span></span>
+router.post('/', auth, async (req, res) =&gt; {
+  const { error } = validate(req.body);
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (error) <span class="cstat-no" title="statement not covered" >return res.status(400).send(error.details[0].message);</span>
 &nbsp;
-  let genre = <span class="cstat-no" title="statement not covered" >new Genre({ name: req.body.name });</span>
-<span class="cstat-no" title="statement not covered" >  genre = await genre.save();</span>
+  let genre = new Genre({ name: req.body.name });
+  genre = await genre.save();
   
-<span class="cstat-no" title="statement not covered" >  res.send(genre);</span>
+  res.send(genre);
 });
 &nbsp;
 router.put('/:id', <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
@@ -202,12 +202,12 @@ router.delete('/:id', [auth, admin], <span class="fstat-no" title="function not 
 <span class="cstat-no" title="statement not covered" >  res.send(genre);</span>
 });
 &nbsp;
-router.get('/:id', validateObjectId,<span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-  const genre = <span class="cstat-no" title="statement not covered" >await Genre.findById(req.params.id);</span>
+router.get('/:id', validateObjectId,async (req, res) =&gt; {
+  const genre = await Genre.findById(req.params.id);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!genre) <span class="cstat-no" title="statement not covered" >return res.status(404).send('The genre with the given ID was not found.');</span></span>
+  if (!genre) return res.status(404).send('The genre with the given ID was not found.');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  res.send(genre);</span>
+  res.send(genre);
 });
 &nbsp;
 module.exports = router;</pre></td></tr></table></pre>
@@ -217,7 +217,7 @@ module.exports = router;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jun 12 2020 16:25:45 GMT+0100 (British Summer Time)
+                at Fri Jun 12 2020 17:50:20 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
